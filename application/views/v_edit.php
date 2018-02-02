@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Membuat CRUD dengan CodeIgniter | MalasNgoding.com</title>
+	<title>Membuat CRUD </title>
 </head>
 <body>
-	<center>
-		<h1>Membuat CRUD dengan CodeIgniter | MalasNgoding.com</h1>
-		<h3>Edit Data</h3>
-	</center>
+
 	<?php foreach($user as $u){ ?>
-	<form action="<?php echo base_url(). 'index.php/crud/update'; ?>" method="post">
+	<form action="<?php echo base_url(). 'index.php/admin/update'; ?>" method="post">
 		<table style="margin:20px auto;">
 			<tr>
 				<td>Username</td>
