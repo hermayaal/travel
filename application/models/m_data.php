@@ -1,23 +1,39 @@
 <?php 
-
+ 
 class M_data extends CI_Model{
 	function tampil_data(){
 		return $this->db->get('user');
 	}
-
-	function input_data($data,$user){
-		$this->db->insert($user,$data);
+	function tampil_data_customer(){
+		return $this->db->get('customer');
 	}
-	function hapus_data($where,$user){
-	$this->db->where($where);
-	$this->db->delete($user);
+	function tampil_data_reservation(){
+		return $this->db->get('reservation');
 	}
-	function edit_data($where,$user){		
-		return $this->db->get_where($user,$where);
+	function tampil_data_rute(){
+		return $this->db->get('rute');
 	}
-
-	function update_data($where,$data,$user){
+	function tampil_data_transportation(){
+		return $this->db->get('transportation');
+	}
+	function tampil_data_transportation_type(){
+		return $this->db->get('transportation_type');
+	}
+	function input_data($data,$table){
+		$this->db->insert($table,$data);
+	}
+ 
+	function hapus_data($where,$table){
 		$this->db->where($where);
-		$this->db->update($user,$data);
+		$this->db->delete($table);
+	}
+
+	function edit_data($where,$table){		
+	return $this->db->get_where($table,$where);
+	}
+
+	function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
 	}	
 }

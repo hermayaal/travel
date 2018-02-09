@@ -55,7 +55,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<li><a href="#about" class=" scroll">About</a></li>
 											<li><a href="#gallery" class=" scroll">Destinations</a></li>
 											<li><a href="#contact" class=" scroll">Contact</a></li>
-											<li><a href="index.php/welcome/tampil">Account</a></li>
+											<li><a href="<?php echo base_url(); ?>index.php/welcome/login">Login</a></li>
 										</ul>
 									</nav>
 								</div>

@@ -3,85 +3,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	
 	function __construct(){
-		parent::__construct();		
+		parent::__construct();
 		$this->load->model('m_data');
-		$this->load->helper('url');
-
+		$this->load->library('encryption');
+		if ($this->session->userdata('status')!='login') {
+			redirect(base_url('login'));
+		}
+	 }
+	public function index()
+	{
+		$data['user']= $this->m_data->tampil_data()->result();
+		$this->load->view('v_admin',$data);
 	}
-
-	function index(){
-		$data['user'] = $this->m_data->tampil_data()->result();
-		$this->load->view('admin',$data);
+	public function user()
+	{
+		$data['user']= $this->m_data->tampil_data()->result();
+		$this->load->view('v_admin_data_user',$data);
 	}
-
-	function tambah(){
-		$this->load->view('v_input');
+	public function customer()
+	{
+		$data['customer']= $this->m_data->tampil_data_customer()->result();
+		$this->load->view('v_admin_data_customer',$data);
 	}
-
-	function tambah_aksi(){
-		$id = $this->input->post('id');
-		$username = $this->input->post('username');
-		$fullname = $this->input->post('fullname');
-		$password = $this->input->post('password');
-		$level = $this->input->post('level');
-
-		$data = array(
-			'id' => $id,
-			'username' => $username,
-			'fullname' => $fullname,
-			'password' => $password,
-			'level' => $level
-			);
-		$this->m_data->input_data($data,'user');
-		redirect('admin/index');
+	public function reservation()
+	{
+		$data['reservation']= $this->m_data->tampil_data_reservation()->result();
+		$this->load->view('v_admin_data_reservation',$data);
 	}
-	function hapus($id){
-		$where = array('id' => $id);
-		$this->m_data->hapus_data($where,'user');
-		redirect('admin/index');
+	public function rute()
+	{
+		$data['rute']= $this->m_data->tampil_data_rute()->result();
+		$this->load->view('v_admin_data_rute',$data);
 	}
-	function edit($id){
-	$where = array('id' => $id);
-	$data['user'] = $this->m_data->edit_data($where,'user')->result();
-	$this->load->view('v_edit',$data);
+	public function transportation()
+	{
+		$data['transportation']= $this->m_data->tampil_data_transportation()->result();
+		$this->load->view('v_admin_data_transportation',$data);
 	}
-	function update(){
-	$id = $this->input->post('id');
-	$username = $this->input->post('username');
-	$fullname = $this->input->post('fullname');
-	$password = $this->input->post('password');
-	$level = $this->input->post('level');
-
-	$data = array(
-		'username' => $username,
-		'fullname' => $fullname,
-		'password' => $password,
-		'level' => $level
-	);
-
-	$where = array(
-		'id' => $id
-	);
-
-	$this->m_data->update_data($where,$data,'user');
-	redirect('admin/index');
+	public function transportation_type()
+	{
+		$data['transportation_type']= $this->m_data->tampil_data_transportation_type()->result();
+		$this->load->view('v_admin_data_transportation_type',$data);
 	}
-	
 }
