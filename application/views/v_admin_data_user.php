@@ -358,7 +358,7 @@
             <div class="box">
               <div class="box-header">
                 <h3 class="box-title">Data Table With Full Features</h3>     
-                  <a href=<?php echo base_url("crud/tambah/"); ?> class="btn btn-primary a-btn-slide-text" style="position:absolute;right:0;margin-right:10px; ">
+                  <a href=<?php echo base_url("crud/tambah_user/"); ?> class="btn btn-primary a-btn-slide-text" style="position:absolute;right:0;margin-right:10px; ">
                           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                           <span><strong>Add</strong></span>            
                         </a>

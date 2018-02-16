@@ -15,10 +15,30 @@ class Crud extends CI_Controller{
 		$this->load->view('v_admin',$data);
 	}
  
-	function tambah(){
+	function tambah_user(){
 		$this->load->view('v_admin_data_tambah_user');
 	}
- 
+
+	function tambah_customer(){
+		$this->load->view('v_admin_data_tambah_customer');
+	}
+
+	function tambah_reservation(){
+		$this->load->view('v_admin_data_tambah_reservation');
+	}
+
+	function tambah_rute(){
+		$this->load->view('v_admin_data_tambah_rute');
+	}
+	
+	function tambah_transportation(){
+		$this->load->view('v_admin_data_tambah_transportation');
+	}
+
+	function tambah_transportation_type(){
+		$this->load->view('v_admin_data_tambah_transportation_type');
+	}
+
 	function tambah_aksi(){
 	
 		$fullname = $this->input->post('fullname');

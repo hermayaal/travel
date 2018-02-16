@@ -33,7 +33,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-    <a href=<?php echo base_url('admin'); ?> class="logo">
+      <a href=<?php echo base_url('admin'); ?> class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -322,14 +322,14 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-                <li class="header">MAIN NAVIGATION</li>
-                   <li><a href=<?php echo base_url("admin"); ?>><i class="fa fa-circle-o"></i> Overview</a></li>
-                   <li><a href=<?php echo base_url("admin/user"); ?>><i class="fa fa-table"></i> Data Users</a></li>
-                   <li><a href=<?php echo base_url("admin/customer"); ?>><i class="fa fa-table"></i> Data Customer</a></li>
-                   <li class="active"><a href=<?php echo base_url("admin/reservation"); ?>><i class="fa fa-table"></i> Data Reservation</a></li>
-                   <li><a href=<?php echo base_url("admin/rute"); ?>><i class="fa fa-table"></i> Data Rute</a></li>
-                   <li><a href=<?php echo base_url("admin/transportation"); ?>><i class="fa fa-table"></i> Data Transportation</a></li>
-                   <li><a href=<?php echo base_url("admin/transportation_type"); ?>><i class="fa fa-table"></i> Data Transportation Type</a></li>   
+          <li class="header">MAIN NAVIGATION</li>
+          <li><a href=<?php echo base_url("admin"); ?>><i class="fa fa-circle-o"></i> Overview</a></li>
+          <li><a href=<?php echo base_url("admin/user"); ?>><i class="fa fa-table"></i> Data Users</a></li>
+          <li><a href=<?php echo base_url("admin/customer"); ?>><i class="fa fa-table"></i> Data Customer</a></li>
+          <li><a href=<?php echo base_url("admin/reservation"); ?>><i class="fa fa-table"></i> Data Reservation</a></li>
+          <li class="active"><a href=<?php echo base_url("admin/rute"); ?>><i class="fa fa-table"></i> Data Rute</a></li>
+          <li><a href=<?php echo base_url("admin/transportation"); ?>><i class="fa fa-table"></i> Data Transportation</a></li>
+          <li><a href=<?php echo base_url("admin/transportation_type"); ?>><i class="fa fa-table"></i> Data Transportation Type</a></li>   
         </ul>
       </section>
       <!-- /.sidebar -->
@@ -357,267 +357,250 @@
 
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Data Table With Full Features</h3>     
-                  <a href=<?php echo base_url("crud/tambah_reservation/"); ?> class="btn btn-primary a-btn-slide-text" style="position:absolute;right:0;margin-right:10px; ">
-                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                          <span><strong>Add</strong></span>            
-                        </a>
+                <h3 class="box-title">Tambah data</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <table id="data_user" class="table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      <th>No id</th>
-                      <th>Reservation ID</th>
-                      <th>Reservation At</th>
-                      <th>Reservation Date</th>
-                      <th>Customer ID</th>
-                      <th>Seat Code</th>
-                      <th>Rute ID</th>
-                      <th>Depart At</th>
-                      <th>Price</th>
-                      <th>User ID</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php  foreach ($reservation as $u) { ?>
-                    <tr>
-                      <td><?php echo $u->id; ?></td>
-                      <td><?php echo $u->reservation_id; ?></td>
-                      <td><?php echo $u->reservation_at; ?></td>
-                      <td><?php echo $u->reservation_date; ?></td>
-                      <td><?php echo $u->customerid; ?></td>
-                      <td><?php echo $u->seat_code; ?></td>
-                      <td><?php echo $u->ruteid; ?></td>
-                      <td><?php echo $u->depart_at; ?></td>
-                      <td><?php echo $u->price; ?></td>
-                      <td><?php echo $u->userid; ?></td>
-                      <td>
-                        <a href=<?php echo base_url("crud/edit/".$u->id); ?> class="btn btn-primary a-btn-slide-text">
-                          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                          <span><strong>Edit</strong></span>            
-                        </a>
-                        <a href=<?php echo base_url("crud/hapus/".$u->id); ?> class="btn btn-primary a-btn-slide-text">
-                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                         <span><strong>Delete</strong></span>            
-                       </a>
-                     </td>
-                   </tr>
-                   <?php } ?>
-                 </tfoot>
-               </table>
-             </div>
-             <!-- /.box-body -->
-           </div>
-           <!-- /.box -->
-         </div>
-         <!-- /.col -->
-       </div>
-       <!-- /.row -->
-     </section>
-     <!-- /.content -->
-   </div>
-   <!-- /.content-wrapper -->
-   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
+                <!-- form start -->
+                <form  action=<?php echo base_url("crud/tambah_aksi"); ?> method="post">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label>Depart At</label>
+                      <input type="hidden" class="form-control" name="id"  />
+                      <input type="text" class="form-control" name="depart_at" />
+                    </div>
+                    <div class="form-group">
+                      <label >Rute From</label>
+                      <input type="text" class="form-control" name="rute_from"/>
+                    </div>
+                    <div class="form-group">
+                      <label >Rute To</label>
+                      <input type="text" class="form-control" name="rute_to"/>
+                    </div>
+                    <div class="form-group">
+                      <label >Price</label>
+                      <input type="text" class="form-control" name="price"/>
+                    </div>
+                    <div class="form-group">
+                      <label >Transportation ID</label>
+                      <input type="text" class="form-control" name="transportationid  i"/>
+                    </div>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <input type="submit" value="submit" class="btn btn-primary"/>
+                  </div>
+                </form>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+      <!-- /.content -->
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 2.3.8
       </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
+      <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+      reserved.
+    </footer>
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Create the tabs -->
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane" id="control-sidebar-home-tab">
+          <h3 class="control-sidebar-heading">Recent Activity</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
+                  <p>Will be 23 on April 24th</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-user bg-yellow"></i>
 
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
+                  <p>New phone +1(800)555-1234</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
 
-          <h3 class="control-sidebar-heading">Chat Settings</h3>
+                  <p>nora@example.com</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-file-code-o bg-green"></i>
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Show me as online
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-          </div>
-          <!-- /.form-group -->
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Turn off notifications
-              <input type="checkbox" class="pull-right">
-            </label>
-          </div>
-          <!-- /.form-group -->
+                  <p>Execution time 5 seconds</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-            </label>
-          </div>
-          <!-- /.form-group -->
-        </form>
+          <h3 class="control-sidebar-heading">Tasks Progress</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Custom Template Design
+                  <span class="label label-danger pull-right">70%</span>
+                </h4>
+
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Update Resume
+                  <span class="label label-success pull-right">95%</span>
+                </h4>
+
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Laravel Integration
+                  <span class="label label-warning pull-right">50%</span>
+                </h4>
+
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Back End Framework
+                  <span class="label label-primary pull-right">68%</span>
+                </h4>
+
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Stats tab content -->
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+          <form method="post">
+            <h3 class="control-sidebar-heading">General Settings</h3>
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Report panel usage
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+
+              <p>
+                Some information about this general settings option
+              </p>
+            </div>
+            <!-- /.form-group -->
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Allow mail redirect
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+
+              <p>
+                Other sets of options are available
+              </p>
+            </div>
+            <!-- /.form-group -->
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Expose author name in posts
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+
+              <p>
+                Allow the user to show his name in blog posts
+              </p>
+            </div>
+            <!-- /.form-group -->
+
+            <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Show me as online
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+            </div>
+            <!-- /.form-group -->
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Turn off notifications
+                <input type="checkbox" class="pull-right">
+              </label>
+            </div>
+            <!-- /.form-group -->
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Delete chat history
+                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+              </label>
+            </div>
+            <!-- /.form-group -->
+          </form>
+        </div>
+        <!-- /.tab-pane -->
       </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
+    </aside>
+    <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
@@ -628,8 +611,6 @@
 <script src="<?php echo base_url(); ?>gudang/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url(); ?>gudang/adminlte/bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>gudang/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>gudang/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url(); ?>gudang/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
@@ -640,17 +621,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>gudang/adminlte/dist/js/demo.js"></script>
 <!-- page script -->
-<script>
-  $(function () {
-    $("#data_user").DataTable({
-       "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true
-    });
-  });
-</script>
+
 </body>
 </html>

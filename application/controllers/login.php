@@ -41,8 +41,8 @@ class Login extends CI_Controller {
 			if ($this->session->userdata('level')==='admin') {
 				redirect(base_url('admin'));
 			}
-			if ($this->session->userdata('level')==='user') {
-				echo "user";
+			elseif ($this->session->userdata('level')==='user') {
+				redirect(base_url('welcome_message'));
 			}
 
 		}else{

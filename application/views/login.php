@@ -41,11 +41,7 @@
 					</form>
 				</div>
 				<div class="sign-up-htm">
-					<form action="<?php echo base_url(). 'index.php/admin/tambah_aksi'; ?>" method="post">
-						<div class="group">
-							<label for="id" class="label">ID</label>
-							<input name="id" id="id" type="text" class="input">
-						</div>
+					<form action="<?php echo base_url(). 'index.php/crud/tambah_aksi'; ?>" method="post">
 						<div class="group">
 							<label for="username" class="label">Username</label>
 							<input name="username" id="username" type="text" class="input">
