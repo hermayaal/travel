@@ -56,6 +56,91 @@ class Crud extends CI_Controller{
 		redirect('admin/');
 	}
 
+	function tambah_aksi_customer(){
+	
+		$name = $this->input->post('name');
+		$address = $this->input->post('address');
+		$phone = $this->input->post('phone');
+		$gender = $this->input->post('gender');
+		$data = array(
+			'name' => $name,
+			'address' => $address,
+			'phone' => $phone,
+			'gender' => $gender
+		);
+ 
+		$this->m_data->input_data($data,'customer');
+		redirect('admin/');
+	}
+
+	function tambah_aksi_reservation(){
+	
+		$reservation_id = $this->input->post('reservation_id');
+		$address = $this->input->post('address');
+		$phone = $this->input->post('phone');
+		$gender = $this->input->post('gender');
+		$data = array(
+			'reservation_id' => $reservation_id,
+			'address' => $address,
+			'phone' => $phone,
+			'gender' => $gender
+		);
+ 
+		$this->m_data->input_data($data,'customer');
+		redirect('admin/');
+	}
+
+	function tambah_aksi_rute(){
+	
+		$name = $this->input->post('name');
+		$address = $this->input->post('address');
+		$phone = $this->input->post('phone');
+		$gender = $this->input->post('gender');
+		$data = array(
+			'name' => $name,
+			'address' => $address,
+			'phone' => $phone,
+			'gender' => $gender
+		);
+ 
+		$this->m_data->input_data($data,'customer');
+		redirect('admin/');
+	}
+
+	function tambah_aksi_transportation(){
+	
+		$name = $this->input->post('name');
+		$address = $this->input->post('address');
+		$phone = $this->input->post('phone');
+		$gender = $this->input->post('gender');
+		$data = array(
+			'name' => $name,
+			'address' => $address,
+			'phone' => $phone,
+			'gender' => $gender
+		);
+ 
+		$this->m_data->input_data($data,'customer');
+		redirect('admin/');
+	}
+
+	function tambah_aksi_transportation_type(){
+	
+		$name = $this->input->post('name');
+		$address = $this->input->post('address');
+		$phone = $this->input->post('phone');
+		$gender = $this->input->post('gender');
+		$data = array(
+			'name' => $name,
+			'address' => $address,
+			'phone' => $phone,
+			'gender' => $gender
+		);
+ 
+		$this->m_data->input_data($data,'customer');
+		redirect('admin/');
+	}
+
 	function edit($id){
 	$where = array('id' => $id);
 	$data['user'] = $this->m_data->edit_data($where,'user')->result();

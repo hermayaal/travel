@@ -14,6 +14,11 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		$data['user']= $this->m_data->tampil_data()->result();
+		$data['customer']= $this->m_data->tampil_data_customer()->result();
+		$data['reservation']= $this->m_data->tampil_data_reservation()->result();
+		$data['rute']= $this->m_data->tampil_data_rute()->result();
+		$data['transportation']= $this->m_data->tampil_data_transportation()->result();
+		$data['transportation_type']= $this->m_data->tampil_data_transportation_type()->result();
 		$this->load->view('v_admin',$data);
 	}
 	public function user()

@@ -71,18 +71,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="book-form" id="register">
 							<p>Pick your destination</p>
 							<form action="#" method="post">
-								<div class="col-md-2 form-time-w3layouts">
+								<div class="col-md-3 form-time-w3layouts">
 									<label>Travelling From</label>
-									<select class="form-control">
+									<select name ="nama_kota" class="form-control">
 										<option>From</option>
-										<option>New York</option>
-										<option>Lisbon</option>
-										<option>Melbourne</option>
-										<option>Berlin</option>
-										<option>Other</option>
+										<?php
+										mysqli_connect("localhost", "root", "");
+										mysqli_select_db("kota");
+										$sql = mysqli_query("SELECT * FROM kota ORDER BY nama_kota ASC");
+										if(mysqli_num_rows($sql) != 0){
+											while($data = mysqli_fetch_assoc($sql)){
+												echo '<option>'.$data['nama_kota'].'</option>';
+											}
+										}
+										?>
 									</select>
 								</div>
-								<div class="col-md-2 form-left-agileits-w3layouts ">
+								<div class="col-md-3 form-left-agileits-w3layouts ">
 									<label>Travelling To</label>
 									<select class="form-control">
 										<option>To</option>
@@ -95,10 +100,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="col-md-2 form-date-w3-agileits">
 									<label>Departure Date</label>
-									<input  id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
-								</div>
-								<div class="col-md-2 form-date-w3-agileits">
-									<label>Return Date</label>
 									<input  id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 								<div class="col-md-2 form-left-agileits-w3layouts ">
